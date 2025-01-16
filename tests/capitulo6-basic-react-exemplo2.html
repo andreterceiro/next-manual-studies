@@ -14,17 +14,27 @@
         }
 
         function HomePage(props) {
+            var names = props.names.split(",");
+            console.log(names);
             return (
                 <div>
                     <Header></Header>
-                    {props.name}
+                    <ul>
+                        {
+                            names.map(
+                                (item, index) => (
+                                    <li>{item}</li>
+                                )
+                            )
+                        }
+                    </ul>
                 </div>
             );
         }
 
         const app = document.getElementById("app");
         const root = ReactDOM.createRoot(app);
-        root.render(<HomePage name="André" />);
+        root.render(<HomePage names="André, Júlio, Enzo" />);
     </script>
 </head>
 <body>
